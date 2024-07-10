@@ -1,32 +1,32 @@
-<%- include('./partials/header.ejs')%>
-    <!-- Your HTML content here -->
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6 mb-4">
-                <div class="card text-white bg-success shadow-sm rounded">
-                    <div class="card-body text-center">
-                        <h2 class="card-title">Edit student information</h2>
-                        <p class="card-text">Edit student profile quickly and easily.</p>
-                        <form method="post">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" name="name" />
-                            </div>
-                            <div class="mb-3">
-                                <label for="age" class="form-label">Age</label>
-                                <input type="text" class="form-control" id="age" name="age" />
-                            </div>
-                            <div class="mb-3">
-                                <label for="fees" class="form-label">Fees</label>
-                                <input type="text" class="form-warning" id="fees" name="fees" />
-                            </div>
-                            <button type="submit" class="btn btn-secondry w-100">Update</button>
-                        </form>
-                    </div>
+<%- include('./partials/header.ejs') %>
+<!-- Your HTML content here -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card text-white bg-success shadow-sm rounded">
+                <div class="card-body text-center">
+                    <h2 class="card-title">Edit student information</h2>
+                    <p class="card-text">Edit student profile quickly and easily.</p>
+                    <form method="post" action="/students/update/<%= edit._id %>">
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="<%= edit.name %>" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="number" class="form-control" id="age" name="age" value="<%= edit.age %>" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="fees" class="form-label">Fees</label>
+                            <input type="number" class="form-control" id="fees" name="fees" value="<%= edit.fees %>" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Update</button>
+                    </form>
+                    <a href="/students" class="btn btn-secondary mt-3 w-100">Back to Home</a>
                 </div>
             </div>
         </div>
     </div>
-
-
-    <%- include('./partials/footer.ejs')%>
+</div>
+<%- include('./partials/footer.ejs') %>

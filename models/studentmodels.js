@@ -1,14 +1,20 @@
-import { name } from "ejs";
 import mongoose from "mongoose";
 
 // Schema
-const studentschema = new mongoose.schema({
-    name: { type: String, required, trim: true },
+const studentSchema = new mongoose.Schema({
+    name: { type: String, required: true, trim: true },
     age: { type: Number, required: true, min: 18, max: 60 },
-    fees: { type: mongoose, Decimal128, required: true, validate: (v) => value >= 5000.5 }
+    fees: { 
+        type: Number, 
+        required: true, 
+        validate: {
+            validator: (value) => value >= 0,
+            message: 'Fees should be greater than or equal to 5000.5'
+        }
+    }
 })
 
 // Models
-const studentmodel = mongoose.model("student", studentSchema)
+const StudentModel = mongoose.model("student", studentSchema);
 
-export default studentmodel
+export default StudentModel;

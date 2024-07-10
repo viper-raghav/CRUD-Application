@@ -6,7 +6,7 @@ const connectDB = async (DATABASE_URL) => {
             dbName: "school",
         };
         await mongoose.connect(DATABASE_URL, DB_OPTIONS);
-        console.log("Connected successfully.");
+        console.log("Connected successfully!!!! sever is up.");
     } catch (err) {
         console.log(err);
     }

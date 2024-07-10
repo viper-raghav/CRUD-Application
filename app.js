@@ -5,11 +5,12 @@ import web from './routes/web.js';  // Correct import
 
 const app = express();
 const port = process.env.PORT || 3000;
-const DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost:27017/school';
-
+const DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost:27017/';
 
 // Database connection
 connectDB(DATABASE_URL);
+
+app.use(express.urlencoded({extended:false}));
 
 // Set view engine
 app.set('view engine', 'ejs');
